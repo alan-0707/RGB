@@ -1,0 +1,76 @@
+int i,LED[5]={13,12,11,10,9};
+void one()
+{
+  for(i=0;i<5;i++)
+  {
+   digitalWrite(LED[i], HIGH);
+   delay(500);
+   digitalWrite(LED[i], LOW);
+  }
+  for(i=3;i>=0;i--)
+   { 
+   digitalWrite(LED[i], HIGH);
+   delay(500);
+   digitalWrite(LED[i], LOW);
+   }
+} 
+      
+void two()
+{
+  for(i=0;i<4;i++)
+  {
+   digitalWrite(LED[i], HIGH);
+   digitalWrite(LED[i+1], HIGH);
+   delay(500);
+   digitalWrite(LED[i], LOW);
+   digitalWrite(LED[i+1], LOW);
+  }
+  for(i=4;i>=0;i--)
+   { 
+     digitalWrite(LED[i], HIGH);
+     digitalWrite(LED[i-1], HIGH);
+     delay(500);
+     digitalWrite(LED[i], LOW);
+     digitalWrite(LED[i-1], LOW);
+   }
+}
+void three()
+{
+  for(i=0;i<5;i++)
+  {
+    digitalWrite(LED[i], HIGH);
+    delay(500);
+   }
+  for(i=4;i>=0;i--)
+  {
+     digitalWrite(LED[i], LOW);
+    delay(500);
+  }
+}
+void setup()
+{
+ for(i=0;i<5;i++);
+ {
+   pinMode(LED[i],OUTPUT);
+   pinMode(1,INPUT);
+   pinMode(2,INPUT);
+   
+ }  
+}
+void loop()
+{
+ int x,y;
+   x=digitalRead(1);
+   y=digitalRead(2);
+  if(x)
+  {
+    if(y)
+      one();
+    else
+      two();
+  }
+  else
+  {   
+    three();
+  }  
+}
