@@ -1,0 +1,100 @@
+#define r 3
+#define b 5
+#define g 6
+void setup()
+{
+  pinMode(r, OUTPUT);
+  pinMode(b, OUTPUT);
+  pinMode(g, OUTPUT);
+}
+
+void loop()
+{
+  int i;
+  for(i=0;i<256;i+=5)
+  {
+  analogWrite(r, i);
+  analogWrite(b, i/2);
+  delay(10);
+  }
+  for(i=256;i=0;i-=5)
+  {
+  analogWrite(r, i);
+  analogWrite(b, i/2);
+  delay(100);
+  }
+  int j;
+  for(j=0;j<256;j+=5)
+  {
+  analogWrite(r, j);
+  analogWrite(g, j/2);
+  delay(10); 
+  }
+  for(j=256;j=0;j-=5)
+  {
+  analogWrite(r, j);
+  analogWrite(g, j/2);
+  delay(100);
+  }
+  int x;
+  for(x=0;x<256;x+=5)
+  {
+  analogWrite(b, x);
+  analogWrite(g, x/2);
+  delay(10); 
+  }
+  for(x=256;x=0;x-=5)
+  {
+  analogWrite(b, x);
+  analogWrite(g, x/2);
+  delay(100);
+  }
+  int e;
+  for(e=0;e<256;e+=5)
+  {
+  analogWrite(b, e);
+  analogWrite(g, e);
+  analogWrite(r, e);
+  delay(10); 
+  }
+  for(e=256;e=0;e-=5)
+  {
+  analogWrite(b, e);
+  analogWrite(g, e);
+  analogWrite(r, e);
+  delay(100);
+  }
+  int h;
+  for(h=0;h<256;h+=5)
+  {
+  analogWrite(r, h);
+  delay(10);
+  }
+  for(h=256;h=0;h-=5)
+  {
+  analogWrite(r, h);
+  delay(100);
+  }
+  int u;
+  for(u=0;u<256;u+=5)
+  {
+  analogWrite(b, u);
+  delay(10);
+  }
+  for(u=256;u=0;u-=5)
+  {
+  analogWrite(b, u);
+  delay(100);
+  }
+  int f;
+  for(f=0;f<256;f+=5)
+  {
+  analogWrite(g, f);
+  delay(10);
+  }
+  for(f=256;f=0;f-=5)
+  {
+  analogWrite(g, f);
+  delay(100);
+  }
+}
