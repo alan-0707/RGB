@@ -1,0 +1,66 @@
+int p[9]={13,12,11,10,9,8,7,6,5};
+int code[6][9]=
+{
+  {1,1,1,1,0,1,1,1,1},
+  {1,0,1,1,1,1,1,0,1},
+  {1,0,1,1,0,1,1,0,1},
+  {0,1,0,1,1,1,0,1,0},
+  {0,1,0,1,0,1,0,1,0},
+  {0,0,0,1,1,1,0,0,0},
+};
+
+void setup()
+{
+  int i;
+  for(i=0;i<9;i++)
+  {
+    pinMode(p[i],OUTPUT);
+    digitalWrite(p[i],HIGH);
+  }
+}
+
+void one()
+{
+  int i,j;
+  for(i=0;i<6;i++)
+  {
+    for(j=0;j<9;j++)
+    {
+      if(code[i][j])
+      {
+        digitalWrite(p[j],LOW);
+        
+      }
+      else
+      {
+        digitalWrite(p[j],HIGH);
+      }
+    }
+    delay(1000);
+  }
+}
+void two()
+{
+  int i,j;
+  for(i=5;i>=0;i--)
+  {
+    for(j=8;j>=0;j--)
+    {
+      if(code[i][j])
+      {
+        digitalWrite(p[j],LOW);
+        
+      }
+      else
+      {
+        digitalWrite(p[j],HIGH);
+      }
+    }
+   delay(1000);
+  }  
+}
+void loop()
+{
+  one();
+  two();  
+}
